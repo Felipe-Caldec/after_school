@@ -6,21 +6,22 @@ def portada(request):
     if request.method == "POST":
         nombre = request.POST.get("nombre")
         apellido = request.POST.get("apellido")
+        direccion = request.POST.get("direccion")
         correo = request.POST.get("correo")
         telefono = request.POST.get("telefono")
         mensaje = request.POST.get("mensaje")
-        fecha = request.POST.get("fecha")
 
-        asunto = "Nuevo mensaje de contacto"
+
+        asunto = f"Nuevo mensaje de {nombre} {apellido}"
         cuerpo = (
             f"Nombre: {nombre} {apellido}\n"
+            f"Dirección: {direccion}\n"
             f"Correo: {correo}\n"
             f"Teléfono: {telefono}\n"
-            f"Fecha: {fecha}\n"
             f"Mensaje:\n{mensaje}"
         )
         send_mail(asunto, cuerpo, correo, ['felipe.betocalderon@gmail.com'])
-        return redirect("{% url 'portada' %}")
+        return redirect("portada")
     
     return render(request, 'portada.html')
 

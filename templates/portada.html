@@ -134,41 +134,27 @@
     </div>
 </div>
 <div class="d-flex justify-content-center px-5 py-4">
-  <div class="bg-info p-4" style="width: 100%; border-radius: 10px; max-width: 100%;">
+  <div class="bg-info p-4" style="width: 100%; min-width: 315px ; border-radius: 10px; max-width: 100%;">
+    <h2>Contactate con nosotros</h2>
     <div class="row">
       <form class="col-md-8 py-4 my-1" action="" method="post" style="border-radius: 10px; ">
+        {% csrf_token %}
         <label class="form-label" for="nombre">Nombre</label>
-        <input class="form-control" type="text" id="nombre">
+        <input class="form-control" type="text" id="nombre" name="nombre">
         <label class="form-label" for="apellido">Apellidos</label>
-        <input class="form-control" type="text" id="apellido">
+        <input class="form-control" type="text" id="apellido" name="apellido">
         <label class="form-label" for="direccion">Dirección</label>
-        <input class="form-control" type="text" id="direccion">
+        <input class="form-control" type="text" id="direccion" name="direccion">
         <label class="form-label" for="correo">Correo</label>
-        <input class="form-control" type="email" id="correo">
+        <input class="form-control" type="email" id="correo" name="correo">
         <label class="form-label" for="telefono">Teléfono</label>
-        <input class="form-control" type="number" id="telefono" maxlength="9" placeholder="máximo 9 dígitos">
+        <input class="form-control" type="number" id="telefono" maxlength="9" minlength="9" placeholder="ingresa 9 dígitos" name="telefono">
         <label class="form-label" for="mensaje">Mensaje</label>
-        <textarea class="form-control" type="text" id="mensaje" placeholder="Escribe aquí tu mensaje" style="height: 8rem;"></textarea>
+        <textarea class="form-control" type="text" id="mensaje" placeholder="Escribe aquí tu mensaje" style="height: 8rem;" name="mensaje"></textarea>
         <button class="btn btn-primary mt-3" type="submit">Enviar</button>
-        <input type="hidden" id="fecha" name="fecha">
       </form>
     </div>
   </div>
 </div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const now = new Date();
-
-    // Formatea la fecha como dd-mm-yyyy
-    const dia = String(now.getDate()).padStart(2, '0');
-    const mes = String(now.getMonth() + 1).padStart(2, '0'); // Los meses van de 0 a 11
-    const anio = now.getFullYear();
-
-    const fechaFormateada = `${dia}-${mes}-${anio}`;
-
-    // Asigna el valor al input oculto
-    document.getElementById("fecha").value = fechaFormateada;
-  });
-</script>
 {% endblock %}
