@@ -8,3 +8,6 @@ def talleres(request):
 
 def galeria(request):
     return render(request, 'galeria.html')
+
+def quienes_somos(request):
+    return render(request, 'quienes_somos.html')

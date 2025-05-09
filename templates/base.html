@@ -26,7 +26,7 @@
           <img src="{% static 'logo_after.jpeg'%}" alt="logo_after" width="250" height="200">
         </a>
         <div class="d-flex justify-content-around gap-3" >
-          <a class="nav-link text-dark" aria-current="page" href="#">Quienes Somos</a>
+          <a class="nav-link text-dark" aria-current="page" href="{% url 'quienes-somos'%}">Quienes Somos</a>
           <a class="nav-link text-dark" href="{% url 'talleres'%}">Talleres</a>
           <a class="nav-link text-dark" href="{% url 'galeria'%}">Galería</a>
         </div>
@@ -41,7 +41,7 @@
         <div class="row">
           <div class="col-lg-4">
             <h3 class="text-white">Enlaces</h3>
-              <a href="#" class="text-white">Quienes Somos</a><br>
+              <a href="{% url 'quienes-somos'%}" class="text-white">Quienes Somos</a><br>
               <a href="{% url 'talleres'%}" class="text-white">Talleres</a><br>
               <a href="{% url 'galeria'%}" class="text-white">Galería</a>
           </div>
